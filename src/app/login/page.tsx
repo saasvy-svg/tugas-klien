@@ -1,4 +1,5 @@
 import { login } from './actions'
+import LoginForm from './LoginForm'
 
 export const metadata = {
   title: 'Masuk — Vylogix CRM & Client Portal',
@@ -57,78 +58,7 @@ export default async function LoginPage({
 
         {/* ── Card ── */}
         <div className="w-full max-w-sm bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 p-8">
-          <form action={login} className="space-y-5">
-          {/* Email */}
-          <div>
-            <label
-              htmlFor="login-email"
-              className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1.5 ml-1"
-            >
-              Email Anda
-            </label>
-            <input
-              id="login-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="klien@perusahaan.com"
-              className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border-none text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 transition-all duration-150"
-            />
-          </div>
-
-          {/* Password */}
-          <div>
-            <label
-              htmlFor="login-password"
-              className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1.5 ml-1"
-            >
-              Kata Sandi
-            </label>
-            <input
-              id="login-password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              placeholder="••••••••••"
-              className="w-full px-4 py-3.5 rounded-2xl bg-slate-50 border-none text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 transition-all duration-150"
-            />
-          </div>
-
-          {/* Error message */}
-          {errorMessage && (
-            <div
-              role="alert"
-              className="flex items-start gap-3 bg-red-50 text-red-600 text-sm p-3.5 rounded-2xl"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-4 h-4 mt-0.5 shrink-0 text-red-500"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
-              <span>{decodeURIComponent(errorMessage)}</span>
-            </div>
-          )}
-
-            {/* Submit */}
-            <button
-              id="login-submit-button"
-              type="submit"
-              className="w-full bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white font-semibold py-3.5 rounded-2xl transition-all duration-150 shadow-lg shadow-teal-500/30 mt-2 focus:outline-none focus:ring-2 focus:ring-teal-500/50"
-            >
-              Masuk Sekarang
-            </button>
-          </form>
+          <LoginForm loginAction={login} errorMessage={errorMessage} />
         </div>
       </div>
 
